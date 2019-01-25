@@ -4,8 +4,9 @@ import { StyleSheet, Text, View } from 'react-native';
 export default class App extends React.Component {
   render() {
     return (
+        //Dude this is freaking sick
       <View style={styles.container}>
-        <Text style={{fontSize:15, fontWeight: 'bold'}}>This is our roomate app, developed by Bhav & Yami</Text>
+        <Text style={styles.titleText}>This is our roomate app, developed by Bhav & Yami</Text>
       </View>
     );
   }
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Cochin',
   },
   titleText: {
-    fontSize: 20,
+    fontSize: 12,
     fontWeight: 'bold',
   },
 });
