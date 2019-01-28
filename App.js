@@ -10,7 +10,12 @@ export default class App extends React.Component {
   render() {
     return (
         //Fade in Homescreen on mount (on loading basically)
-      <View style={styles.container}> 
+      <View style={styles.container}>
+        <View style={styles.container}>
+          <FadeInView style={{width: 250, height: 250, backgroundColor: 'blue'}}>
+            <Image style={ImageStyles.stretch} source={require('/Users/Bhav/allPrograms/RoomateApp/assets/logo.png')}/>
+          </FadeInView>
+        </View>
         <View style={styles.container}>
           <TextInput
           style={{width: 250, height: 40, borderRadius: 10, backgroundColor: "transparent", borderColor: "black", borderWidth: 1}}
@@ -20,20 +25,20 @@ export default class App extends React.Component {
           placeholder={" EmailAdress"} returnKeyType='next' selectTextOnFocus={true} spellCheck={true} 
           textContentType="emailAddress" color="rgb(8,8,8)"
           fontSize = {styles.homeScreenText.fontSize} includeFontPadding={true} textDecorationColor={"rgb(8,8,8)"}
-          placeholderText = {'rbg(255,255,255'}
+          placeholderText = {'rbg(255,255,255'} 
         />
         </View>
 
         <View style={styles.container}>
         <TextInput
-          style={{width: 250, height: 40, borderRadius: 10, backgroundColor: "transparent", borderColor: "black", borderWidth: 1}}
+          style={{width: 250, height: 40, borderRadius: 10, backgroundColor: "transparent", borderColor: 'black', borderWidth: 1}}
           onChangeText={(text) => this.setState({text})}
           value={this.state.text} autoFocus={true} defaultValue = {"Email"}
           editable={true} enablesReturnKeyAutomatically={true} keyboardAppearence={true}
-          placeholder={" Password"} returnKeyType='next' selectTextOnFocus={true} spellCheck={true} 
+          placeholder={"Password"} returnKeyType='next' selectTextOnFocus={true} spellCheck={true} 
           textContentType="password"  color="rgb(8,8,8)"
           fontSize = {styles.homeScreenText.fontSize} includeFontPadding={true} textDecorationColor={"rgb(8,8,8)"}
-          placeholderText = {'rbg(255,255,255'}
+          placeholderText = {'rbg(255,255,255'} blurOnSubmit = 'true'
         />
         </View>
       </View>
