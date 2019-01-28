@@ -10,17 +10,10 @@ export default class App extends React.Component {
   render() {
     return (
         //Fade in Homescreen on mount (on loading basically)
-      <View>
-        <FadeInView style={{width: 250, height: 250, backgroundColor: 'blue'}}>
-          <Image style={ImageStyles.stretch} source={require('/Users/Bhav/allPrograms/RoomateApp/assets/logo.png')}/>
-        </FadeInView>
-      </View>
-
-
       <View style={styles.container}> 
         <View style={styles.container}>
           <TextInput
-          style={{width: 250, height: 40, borderRadius: 10, backgroundColor: "transparent", borderColor: "rbg(8,8,8)", borderWidth: 1}}
+          style={{width: 250, height: 40, borderRadius: 10, backgroundColor: "transparent", borderColor: "black", borderWidth: 1}}
           onChangeText={(text) => this.setState({text})}
           value={this.state.text} autoFocus={true} defaultValue = {"Email"}
           editable={true} enablesReturnKeyAutomatically={true} keyboardAppearence={true}
@@ -33,7 +26,7 @@ export default class App extends React.Component {
 
         <View style={styles.container}>
         <TextInput
-          style={{width: 250, height: 40, borderRadius: 10, backgroundColor: "transparent", borderColor: "rgb(8,8,8)", borderWidth: 1}}
+          style={{width: 250, height: 40, borderRadius: 10, backgroundColor: "transparent", borderColor: "black", borderWidth: 1}}
           onChangeText={(text) => this.setState({text})}
           value={this.state.text} autoFocus={true} defaultValue = {"Email"}
           editable={true} enablesReturnKeyAutomatically={true} keyboardAppearence={true}
@@ -103,7 +96,7 @@ const styles = StyleSheet.create({
 
   container: {
     flexDirection: 'column',
-    flex: 2,
+    flex: 3,
     //the teal color value is rgb(102,255,204)
     backgroundColor: "#00dfb0",
     alignItems: 'center',
