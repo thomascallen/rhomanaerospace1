@@ -13,7 +13,7 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <View style={styles.container}>
           <FadeInView style={{width: 250, height: 250, backgroundColor: 'blue'}}>
-            <Image style={ImageStyles.stretch} source={require('/Users/Bhav/allPrograms/RoomateApp/assets/logo.png')}/>
+            <Image style={ImageStyles.stretch} source={require('./assets/logo.png')}/>
           </FadeInView>
         </View>
         <View style={styles.container}>
