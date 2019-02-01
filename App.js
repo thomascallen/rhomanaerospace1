@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Animated, Easing, TextInput, AppRegistry, Image, StyleSheet, Text, View } from 'react-native';
+import { Keyboard, Animated, Easing, TextInput, AppRegistry, Image, StyleSheet, Text, View } from 'react-native';
 
 
 
@@ -17,17 +17,20 @@ export default class App extends React.Component {
             <Image style={ImageStyles.stretch} source={require('./assets/logo.png')}/>
           </FadeInView>
         </View>
-        <View style={styles.container}>
-          <MakeTextInputBox placeholder={" Email"} textContentType="emailAddress" />
+        <View style={styles.textBox}>
+          <MakeTextInputBox placeholder={" Email"} autoComplete={"email"} keyboardType={"email-address"} />
+        </View>
+          
+        <View style={styles.textBox}>
+          <MakeTextInputBox placeholder={" Password"} textContentType={"password"}secureTextEntry={true}/>
         </View>
 
-        <View style={styles.container}>
-          <MakeTextInputBox placeholder={" Password"} textContentType="password" />
-        </View>
       </View>
     );
   }
 }
+
+
 
 
 class MakeTextInputBox extends Component{
@@ -40,16 +43,8 @@ class MakeTextInputBox extends Component{
     display dependnig on if the user defined a placeholder already
     */
     this.state={text: ""};
-    this.style={width: 250, 
-      height: 40, 
-      borderRadius: 10, 
-      backgroundColor: "transparent", 
-      borderColor: 'black', 
-      borderWidth: 2
-    };
-
     //need to set defaultValue, textContentType, placeholder
-
+    this.padding=5;
     this.onChangeText=(text) => this.setState({text});
     this.value=this.state.text; 
     this.autoFocus=true;
@@ -67,14 +62,26 @@ class MakeTextInputBox extends Component{
     this.includeFontPadding=true;
     this.textDecorationColor="rgb(8,8,8)";
     this.placeholderText = "rbg(255,255,255)";
+    this.onSubmitEditing=Keyboard.dismiss;
+
+    // this.secureTextEntry = function(){
+    //   if(this.textContentType=="password"){
+    //     true
+    //   }else{
+    //     false
+    //   }
+    // };
+
     this.blurOnSubmit = 'true';
   }
   ///constructor ends here, define default props up here ^^
   render(){
     return(
+      
       <TextInput
         {...this.props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
       />
+     
     );
   }
   
@@ -123,11 +130,7 @@ const ImageStyles = StyleSheet.create({
     width: 250,
     height: 250,
     borderRadius: 0,
-    position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
+    
   },
 });
 
@@ -136,11 +139,13 @@ const styles = StyleSheet.create({
 
   container: {
     flexDirection: 'column',
-    flex: 3,
+    flex: 2,
     //the teal color value is rgb(102,255,204)
+    //
     backgroundColor: "#00dfb0",
     alignItems: 'center',
     justifyContent: 'center',
+    paddingBottom: 250
   },
   baseText: {
     fontFamily: 'Times New Roman',
@@ -156,6 +161,20 @@ const styles = StyleSheet.create({
   homeScreenText: {
     fontSize: 16,
     fontWeight: 'bold'
+  },
+
+  textBox: {
+    width: 250, 
+    height: 40, 
+    borderRadius: 10, 
+    backgroundColor: "#00dfb0", 
+    borderColor: "rgb(108, 253, 103)", 
+    borderWidth: 3
+    
   }
 
 });
+
+
+
+
