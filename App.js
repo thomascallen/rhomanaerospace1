@@ -12,34 +12,16 @@ export default class App extends React.Component {
         //Fade in Homescreen on mount (on loading basically)
       <View style={styles.container}>
         <View style={styles.container}>
-          <FadeInView style={{width: 250, height: 250, backgroundColor: "transparent"}}>
+          <FadeInView style={{width: 250, height: 250, backgroundColor: 'blue'}}>
             <Image style={ImageStyles.stretch} source={require('./assets/logo.png')}/>
           </FadeInView>
         </View>
         <View style={styles.container}>
-          <TextInput
-          style={{width: 250, height: 40, borderRadius: 10, backgroundColor: "transparent", borderColor: "black", borderWidth: 1}}
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.text} autoFocus={true} defaultValue = {"Email"}
-          editable={true} enablesReturnKeyAutomatically={true} keyboardAppearence={true}
-          placeholder={" EmailAdress"} returnKeyType='next' selectTextOnFocus={true} spellCheck={true} 
-          textContentType="emailAddress" color="rgb(8,8,8)"
-          fontSize = {styles.homeScreenText.fontSize} includeFontPadding={true} textDecorationColor={"rgb(8,8,8)"}
-          placeholderText = {'rbg(255,255,255'} 
-        />
+        <makeTextInputBox defaultValue={"null"} placeholder={" Email"} textContentType="emailAddress" />
         </View>
 
         <View style={styles.container}>
-        <TextInput
-          style={{width: 250, height: 40, borderRadius: 10, backgroundColor: "transparent", borderColor: 'black', borderWidth: 1}}
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.text} autoFocus={true} defaultValue = {"Email"}
-          editable={true} enablesReturnKeyAutomatically={true} keyboardAppearence={true}
-          placeholder={"Password"} returnKeyType='next' selectTextOnFocus={true} spellCheck={true} 
-          textContentType="password"  color="rgb(8,8,8)"
-          fontSize = {styles.homeScreenText.fontSize} includeFontPadding={true} textDecorationColor={"rgb(8,8,8)"}
-          placeholderText = {"rbg(255,255,255)"} blurOnSubmit = {true}
-        />
+        <makeTextInputBox defaultValue={"null"} placeholder={" Password"} textContentType="password" />
         </View>
       </View>
     );
@@ -56,15 +38,7 @@ class makeTextInputBox extends React.component{
     which is based off of a function which decides what to 
     display dependnig on if the user defined a placeholder already
     */
-    this.state={text: 
-      function(){
-      if(this.placeholder==null){
-        this.placeholder = "no placeholder defined";
-      }
-      else{
-        this.placeholder
-      }}
-    };
+    this.state={text: ""};
     this.style={width: 250, 
       height: 40, 
       borderRadius: 10, 
@@ -72,18 +46,21 @@ class makeTextInputBox extends React.component{
       borderColor: 'black', 
       borderWidth: 1
     };
+
+    //need to set defaultValue, textContentType, placeholder
+
     this.onChangeText=(text) => this.setState({text});
     this.value=this.state.text; 
     this.autoFocus=true;
-    this.defaultValue = "Email";
+    // this.defaultValue = "Email";
     this.editable=true;
     this.enablesReturnKeyAutomatically=true;
     this.keyboardAppearence=true;
-    this.placeholder="Password";
+    // this.placeholder="null";
     this.returnKeyType='next';
     this.selectTextOnFocus=true;
     this.spellCheck=true;
-    this.textContentType="password";
+    // this.textContentType="null";
     this.color="rgb(8,8,8)"
     this.fontSize = 16;
     this.includeFontPadding=true;
@@ -94,6 +71,9 @@ class makeTextInputBox extends React.component{
   ///constructor ends here, define default props up here ^^
   render(){
     return(
+      <TextInput
+        {...this.props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
+      />
     );
   }
   
