@@ -18,7 +18,7 @@ export default class App extends React.Component {
           <Image style={ImageStyles.stretch} source={require('./assets/logoNoBack.png')}/>
         </FadeInView>
         <View style={styles.textBox}>
-          <MakeTextInputBox placeholder={" Email"} autoComplete={"email"} textAlignVertical= {"center"} keyboardType={"email-address"} />
+          <MakeTextInputBox placeholder={" Email"} autoComplete={"email"} keyboardType={"email-address"} />
         </View>
 
         <View style={{fontSize: 0}}>
@@ -26,7 +26,7 @@ export default class App extends React.Component {
         </View>
 
         <View style={styles.textBox}>
-          <MakeTextInputBox placeholder={" Password"} textAlignVertical= {"center"} textContentType={"password"}secureTextEntry={true}/>
+          <MakeTextInputBox placeholder={" Password"} textContentType={"password"}secureTextEntry={true}/>
         </View>
       </View>
     );
@@ -74,6 +74,7 @@ class MakeTextInputBox extends Component{
     this.textDecorationColor="rgb(8,8,8)";
     this.placeholderText = "rbg(255,255,255)";
     this.onSubmitEditing=Keyboard.dismiss;
+    this.textAlignVertical= "center";
 
     // this.secureTextEntry = function(){
     //   if(this.textContentType=="password"){
@@ -134,7 +135,7 @@ class FadeInView extends React.Component {
 
 
 
-
+//Styles
 
 const ImageStyles = StyleSheet.create({
   stretch:{
