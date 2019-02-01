@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component, Button} from 'react';
 import { Keyboard, Animated, Easing, TextInput, AppRegistry, Image, StyleSheet, Text, View } from 'react-native';
+
 
 
 
@@ -19,6 +20,11 @@ export default class App extends React.Component {
         <View style={styles.textBox}>
           <MakeTextInputBox placeholder={" Email"} autoComplete={"email"} textAlignVertical= {"center"} keyboardType={"email-address"} />
         </View>
+
+        <View style={{fontSize: 0}}>
+          <Text></Text>
+        </View>
+
         <View style={styles.textBox}>
           <MakeTextInputBox placeholder={" Password"} textAlignVertical= {"center"} textContentType={"password"}secureTextEntry={true}/>
         </View>
@@ -28,6 +34,13 @@ export default class App extends React.Component {
 }
 
 
+function LogIn(){
+//if valid return 1, else return -1
+}
+
+function SignUp(){
+//navigate to signup screen
+}
 
 
 class MakeTextInputBox extends Component{
@@ -141,8 +154,8 @@ const styles = StyleSheet.create({
     //
     backgroundColor: "#00dfb0",
     alignItems: 'center',
-    justifyContent: 'center',
-   
+    justifyContent: 'space-between',
+    
   },
 
   container: {
@@ -180,7 +193,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#00dfb0", 
     borderColor: "rgb(108, 253, 103)", 
     borderWidth: 3
-    
   }
 
 });
