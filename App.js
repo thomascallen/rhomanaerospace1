@@ -18,11 +18,11 @@ export default class App extends React.Component {
           </FadeInView>
         </View>
         <View style={styles.container}>
-          <MakeTextInputBox defaultValue={"null"} placeholder={" Email"} textContentType="emailAddress" />
+          <MakeTextInputBox placeholder={" Email"} textContentType="emailAddress" />
         </View>
 
         <View style={styles.container}>
-          <MakeTextInputBox defaultValue={"null"} placeholder={" Password"} textContentType="password" />
+          <MakeTextInputBox placeholder={" Password"} textContentType="password" />
         </View>
       </View>
     );
@@ -66,7 +66,7 @@ class MakeTextInputBox extends Component{
     this.fontSize = 18;
     this.includeFontPadding=true;
     this.textDecorationColor="rgb(8,8,8)";
-    this.placeholderText = "rbg(255,255,255";
+    this.placeholderText = "rbg(255,255,255)";
     this.blurOnSubmit = 'true';
   }
   ///constructor ends here, define default props up here ^^
