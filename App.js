@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Keyboard, Button, Animated, Easing, TextInput, AppRegistry, Image, StyleSheet, Text, View } from 'react-native';
-
-
+import { Divider } from 'react-native-elements';
 
 
 export default class App extends React.Component {
@@ -27,8 +26,38 @@ export default class App extends React.Component {
         
         <View style={styles.textBox}>
           <MakeTextInputBox placeholder={" Password"} textContentType={"password"} secureTextEntry={true}/>
-          <Button onPress={LogIn} color="#00dfb0">Log In</Button>
         </View>
+
+         <View style={{fontSize: 0}}>
+          <Text></Text>
+        </View>
+
+        <View style={styles.button}>
+          <Button onPress={LogIn} color="rgb(35, 35, 35)" title="Login"/>
+        </View>
+
+        <View style={{fontSize: 0}}>
+          <Text></Text>
+          <Text></Text>
+        </View>
+
+      <View style={{fontSize: 20}}>
+        <Text style={styles.textRegister}>───── Or Create An Account  ─────</Text>
+      </View>
+
+      <View style={{fontSize: 0}}>
+          <Text></Text>
+          <Text></Text>
+          <Text></Text>
+        </View>
+      
+        <View style={styles.button}>
+          <Button onPress={SignUp} color="rgb(35, 35, 35)" title="Create an Account"/>
+        </View>
+      
+
+  
+
       </View>
     );
   }
@@ -37,6 +66,7 @@ export default class App extends React.Component {
 
 function LogIn(){
 //if valid return 1, else return -1
+  console.log("got it");
 }
 
 function SignUp(){
@@ -195,6 +225,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#00dfb0", 
     borderColor: "rgb(108, 253, 103)", 
     borderWidth: 3
+  },
+  button: {
+    width: 250,
+    height:40,
+    fontSize:18,
+    backgroundColor: "rgb(108, 253, 103)",
+    borderRadius: 10,
+    fontWeight: 'bold'
+
   }
 
 });
