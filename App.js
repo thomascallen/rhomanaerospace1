@@ -1,5 +1,5 @@
-import React, {Component, Button} from 'react';
-import { Keyboard, Animated, Easing, TextInput, AppRegistry, Image, StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import { Keyboard, Button, Animated, Easing, TextInput, AppRegistry, Image, StyleSheet, Text, View } from 'react-native';
 
 
 
@@ -27,6 +27,7 @@ export default class App extends React.Component {
         
         <View style={styles.textBox}>
           <MakeTextInputBox placeholder={" Password"} textContentType={"password"} secureTextEntry={true}/>
+          <Button onPress={LogIn} color="#00dfb0">Log In</Button>
         </View>
       </View>
     );
