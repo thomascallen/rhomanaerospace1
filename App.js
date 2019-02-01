@@ -11,20 +11,17 @@ export default class App extends React.Component {
   render() {
     return (
         //Fade in Homescreen on mount (on loading basically)
+      
       <View style={styles.container}>
-        <View style={styles.container}>
-          <FadeInView style={{width: 250, height: 250, backgroundColor: 'transparent'}}>
-            <Image style={ImageStyles.stretch} source={require('./assets/logo.png')}/>
-          </FadeInView>
+       <FadeInView style={{width: 250, height: 250, backgroundColor: 'transparent'}}>
+          <Image style={ImageStyles.stretch} source={require('./assets/logo.png')}/>
+        </FadeInView>
+        <View style={styles.textBox}>
+          <MakeTextInputBox placeholder={" Email"} autoComplete={"email"} textAlignVertical= {"center"} keyboardType={"email-address"} />
         </View>
         <View style={styles.textBox}>
-          <MakeTextInputBox placeholder={" Email"} autoComplete={"email"} keyboardType={"email-address"} />
+          <MakeTextInputBox placeholder={" Password"} textAlignVertical= {"center"} textContentType={"password"}secureTextEntry={true}/>
         </View>
-          
-        <View style={styles.textBox}>
-          <MakeTextInputBox placeholder={" Password"} textContentType={"password"}secureTextEntry={true}/>
-        </View>
-
       </View>
     );
   }
@@ -56,6 +53,7 @@ class MakeTextInputBox extends Component{
     this.returnKeyType='next';
     this.selectTextOnFocus=true;
     this.spellCheck=true;
+    
     // this.textContentType="null";
     this.color="rgb(8,8,8)"
     this.fontSize = 18;
@@ -99,7 +97,7 @@ class FadeInView extends React.Component {
       this.state.fadeAnim,            // The animated value to drive
       {
         toValue: 1,                   // Animate to opacity: 1 (opaque)
-        duration: 2500,              // Make it take 2.5 seconds to fade in 
+        duration: 3500,              // Make it take 3.5 seconds to fade in 
       }
     ).start();                        // Starts the animation
   }
@@ -130,12 +128,22 @@ const ImageStyles = StyleSheet.create({
     width: 250,
     height: 250,
     borderRadius: 0,
-    
+    justifyContent: "space-around",    
+    resizeMode: "contain", 
   },
 });
 
 
 const styles = StyleSheet.create({
+
+  defaultContainer: {
+        //the teal color value is rgb(102,255,204)
+    //
+    backgroundColor: "#00dfb0",
+    alignItems: 'center',
+    justifyContent: 'center',
+   
+  },
 
   container: {
     flexDirection: 'column',
@@ -145,7 +153,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#00dfb0",
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 250
+    paddingBottom: 180
   },
   baseText: {
     fontFamily: 'Times New Roman',
@@ -164,6 +172,8 @@ const styles = StyleSheet.create({
   },
 
   textBox: {
+    textAlign: 'center',
+    justifyContent: 'center',
     width: 250, 
     height: 40, 
     borderRadius: 10, 
