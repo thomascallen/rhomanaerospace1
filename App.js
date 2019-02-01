@@ -1,5 +1,6 @@
-import * as React from 'react';
+import React, {Component} from 'react';
 import { Animated, Easing, TextInput, AppRegistry, Image, StyleSheet, Text, View } from 'react-native';
+
 
 
 export default class App extends React.Component {
@@ -12,16 +13,16 @@ export default class App extends React.Component {
         //Fade in Homescreen on mount (on loading basically)
       <View style={styles.container}>
         <View style={styles.container}>
-          <FadeInView style={{width: 250, height: 250, backgroundColor: 'blue'}}>
+          <FadeInView style={{width: 250, height: 250, backgroundColor: 'transparent'}}>
             <Image style={ImageStyles.stretch} source={require('./assets/logo.png')}/>
           </FadeInView>
         </View>
         <View style={styles.container}>
-        <makeTextInputBox defaultValue={"null"} placeholder={" Email"} textContentType="emailAddress" />
+          <MakeTextInputBox defaultValue={"null"} placeholder={" Email"} textContentType="emailAddress" />
         </View>
 
         <View style={styles.container}>
-        <makeTextInputBox defaultValue={"null"} placeholder={" Password"} textContentType="password" />
+          <MakeTextInputBox defaultValue={"null"} placeholder={" Password"} textContentType="password" />
         </View>
       </View>
     );
@@ -29,7 +30,7 @@ export default class App extends React.Component {
 }
 
 
-class makeTextInputBox extends React.component{
+class MakeTextInputBox extends Component{
   constructor(props){
     super(props);
     //you can pass in props 
@@ -44,7 +45,7 @@ class makeTextInputBox extends React.component{
       borderRadius: 10, 
       backgroundColor: "transparent", 
       borderColor: 'black', 
-      borderWidth: 1
+      borderWidth: 2
     };
 
     //need to set defaultValue, textContentType, placeholder
@@ -62,7 +63,7 @@ class makeTextInputBox extends React.component{
     this.spellCheck=true;
     // this.textContentType="null";
     this.color="rgb(8,8,8)"
-    this.fontSize = 16;
+    this.fontSize = 18;
     this.includeFontPadding=true;
     this.textDecorationColor="rgb(8,8,8)";
     this.placeholderText = "rbg(255,255,255";
