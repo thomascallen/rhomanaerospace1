@@ -14,7 +14,7 @@ export default class App extends React.Component {
       
       <View style={styles.container}>
        <FadeInView style={{width: 250, height: 250, backgroundColor: 'transparent'}}>
-          <Image style={ImageStyles.stretch} source={require('./assets/logo.png')}/>
+          <Image style={ImageStyles.stretch} source={require('./assets/logoNoBack.png')}/>
         </FadeInView>
         <View style={styles.textBox}>
           <MakeTextInputBox placeholder={" Email"} autoComplete={"email"} textAlignVertical= {"center"} keyboardType={"email-address"} />
