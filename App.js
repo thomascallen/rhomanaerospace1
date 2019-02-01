@@ -26,7 +26,7 @@ export default class App extends React.Component {
         </View>
 
         <View style={styles.textBox}>
-          <MakeTextInputBox placeholder={" Password"} textContentType={"password"}secureTextEntry={true}/>
+          <MakeTextInputBox placeholder={" Password"} textContentType={"password"} secureTextEntry={true}/>
         </View>
       </View>
     );
