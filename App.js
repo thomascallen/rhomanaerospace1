@@ -47,6 +47,60 @@ export default class App extends React.Component {
 }
 
 
+class makeTextInputBox extends React.component{
+  constructor(props){
+    super(props);
+    //you can pass in props 
+    /*
+    sets the current placeholder to a value called text
+    which is based off of a function which decides what to 
+    display dependnig on if the user defined a placeholder already
+    */
+    this.state={text: 
+      function(){
+      if(this.placeholder==null){
+        this.placeholder = "no placeholder defined";
+      }
+      else{
+        this.placeholder
+      }}
+    };
+    this.style={width: 250, 
+      height: 40, 
+      borderRadius: 10, 
+      backgroundColor: "transparent", 
+      borderColor: 'black', 
+      borderWidth: 1
+    };
+    this.onChangeText=(text) => this.setState({text});
+    this.value=this.state.text; 
+    this.autoFocus=true;
+    this.defaultValue = "Email";
+    this.editable=true;
+    this.enablesReturnKeyAutomatically=true;
+    this.keyboardAppearence=true;
+    this.placeholder="Password";
+    this.returnKeyType='next';
+    this.selectTextOnFocus=true;
+    this.spellCheck=true;
+    this.textContentType="password";
+    this.color="rgb(8,8,8)"
+    this.fontSize = 16;
+    this.includeFontPadding=true;
+    this.textDecorationColor="rgb(8,8,8)";
+    this.placeholderText = "rbg(255,255,255";
+    this.blurOnSubmit = 'true';
+  }
+  ///constructor ends here, define default props up here ^^
+  render(){
+    return(
+    );
+  }
+  
+}
+
+
+
 class FadeInView extends React.Component {
   state = {
     fadeAnim: new Animated.Value(0),  // Initial value for opacity: 0
