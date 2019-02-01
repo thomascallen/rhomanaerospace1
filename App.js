@@ -12,7 +12,7 @@ export default class App extends React.Component {
         //Fade in Homescreen on mount (on loading basically)
       <View style={styles.container}>
         <View style={styles.container}>
-          <FadeInView style={{width: 250, height: 250, backgroundColor: 'blue'}}>
+          <FadeInView style={{width: 250, height: 250, backgroundColor: "transparent"}}>
             <Image style={ImageStyles.stretch} source={require('./assets/logo.png')}/>
           </FadeInView>
         </View>
@@ -38,7 +38,7 @@ export default class App extends React.Component {
           placeholder={"Password"} returnKeyType='next' selectTextOnFocus={true} spellCheck={true} 
           textContentType="password"  color="rgb(8,8,8)"
           fontSize = {styles.homeScreenText.fontSize} includeFontPadding={true} textDecorationColor={"rgb(8,8,8)"}
-          placeholderText = {'rbg(255,255,255'} blurOnSubmit = 'true'
+          placeholderText = {"rbg(255,255,255)"} blurOnSubmit = {true}
         />
         </View>
       </View>
