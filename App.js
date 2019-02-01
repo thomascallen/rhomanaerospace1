@@ -12,10 +12,18 @@ export default class App extends React.Component {
     return (
         //Fade in Homescreen on mount (on loading basically)
       
+    
+
       <View style={styles.container}>
-       <FadeInView style={{width: 250, height: 250, backgroundColor: 'transparent'}}>
-          <Image style={ImageStyles.stretch} source={require('./assets/logoNoBack.png')}/>
+        
+        
+
+        <FadeInView style={{width: 250, height: 250, backgroundColor: 'transparent'}}>
+          <Image style={ImageStyles.stretch} source={require('./assets/logoNoBack.png')}/> 
         </FadeInView>
+
+        
+        
         <View style={styles.textBox}>
           <MakeTextInputBox placeholder={" Email"} autoComplete={"email"} keyboardType={"email-address"} />
         </View>
@@ -41,11 +49,11 @@ export default class App extends React.Component {
           <Text></Text>
         </View>
 
-      <View style={{fontSize: 20}}>
-        <Text style={styles.textRegister}>───── Or Create An Account  ─────</Text>
-      </View>
+        <View style={{fontSize: 20}}>
+         <Text style={styles.textRegister}>───── Or Create An Account  ─────</Text>
+        </View>
 
-      <View style={{fontSize: 0}}>
+        <View style={{fontSize: 0}}>
           <Text></Text>
           <Text></Text>
           <Text></Text>
@@ -54,16 +62,10 @@ export default class App extends React.Component {
         <View style={styles.button}>
           <Button onPress={SignUp} color="rgb(35, 35, 35)" title="Create an Account"/>
         </View>
-      
-
-  
-
       </View>
     );
   }
 }
-
-
 function LogIn(){
 //if valid return 1, else return -1
   console.log("got it");
@@ -234,6 +236,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontWeight: 'bold'
 
+  },
+  backgroundImage: {
+    flex: 1,
+    width: null,
+    height: null,
+    resizeMode: 'cover'
   }
 
 });
