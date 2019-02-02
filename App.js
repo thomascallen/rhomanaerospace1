@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Keyboard, Button, Animated, Easing, TextInput, AppRegistry, Image, StyleSheet, Text, View } from 'react-native';
 import { Divider } from 'react-native-elements';
+//import { StackNavigator } from 'react-navigation';
 
 
 export default class App extends React.Component {
