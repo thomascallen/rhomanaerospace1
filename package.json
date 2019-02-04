@@ -14,10 +14,10 @@
     "react-native-divider": "^1.0.3",
     "react-native-elements": "^1.0.0",
     "react-native-fade-in-image": "^1.4.1",
-    "react-native-gesture-handler": "^1.0.15",
     "react-navigation": "^3.1.2"
   },
   "devDependencies": {
+    "@expo/vector-icons": "^9.0.0",
     "babel-preset-expo": "^5.0.0"
   },
   "private": true

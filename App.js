@@ -5,7 +5,9 @@ import {createStackNavigator, createAppContainer, createAppNavigator} from 'reac
 //import { StackNavigator } from 'react-navigation';
 
 //have to import the login page info from another file
-import LoginScreen from './Login';
+//import Login from './Login';
+import HomePage from './HomePage';
+import Login from './LoginPage';
 
 
 // okay so this creates the stack navigator
@@ -13,11 +15,9 @@ import LoginScreen from './Login';
 // and same with login
 const AppNavigator = createStackNavigator(
   {
-    Home: {screen: HomeScreen},
-    Login: {screen: LoginScreen},
-  },
-  {
-    initialRouteName: "Home"
+    Home: {screen: HomePage},
+    Login: {screen: Login},
+    //Login: {screen: Login},
   }
 );
 
@@ -32,90 +32,6 @@ export default class App extends React.Component {
   }
 }
 
-//the homepage
-class HomeScreen extends React.Component {
-  state = {
-    text: ''
-  };
-
-  render() {
-    return (
-        //Fade in Homescreen on mount (on loading basically)
-      
-      //ImageBackground sets the gradient background for the app. note: background color overides this
-      <ImageBackground source={require("./assets/gradientBack.png")} style={{width: '100%', height: '100%'}}>
-        {/* .container just sets spacing for each component in the main container */}
-        <View style={styles.container}>
-          {/* logo */}
-          <FadeInView style={{width: 250, height: 250, backgroundColor: 'transparent'}}>
-            <Image style={ImageStyles.stretch} source={require('./assets/logoNoBack.png')}/> 
-          </FadeInView>
-          
-          {/* Email textBox */}
-          <View style={styles.textBox}>
-            <MakeTextInputBox placeholder={" Email"} autoComplete={"email"} keyboardType={"email-address"} />
-          </View>
-
-          {/* newline for spacing */}
-          <View style={{fontSize: 0}}>
-            <Text></Text>
-          </View>
-
-          {/* Password textBox */}
-          <View style={styles.textBox}>
-            <MakeTextInputBox textContentType={"password"} placeholder={" Password"} secureTextEntry={true}/>
-          </View>
-
-          {/* newline for spacing */}
-          <View style={{fontSize: 0}}>
-            <Text></Text>
-          </View>
-
-          {/* Login Button */}
-          <View style={styles.button}>
-            <Button onPress={()=>this.props.navigation.navigate('Login')} color="rgb(35, 35, 35)" title="Log In"/>
-          </View>
-
-          {/* more spacing */}
-          <View style={{fontSize: 0}}>
-            <Text></Text>
-            <Text></Text>
-          </View>
-
-          {/* text */}
-          <View style={{fontSize: 20}}>
-          <Text style={styles.textRegister}>───── Or Create An Account  ─────</Text>
-          </View>
-
-          {/* more spacing */}
-          <View style={{fontSize: 0}}>
-            <Text></Text>
-            <Text></Text>
-          </View>
-        
-          {/* createAccount button */}
-          <View style={styles.button}>
-            <Button onPress={SignUp} color="rgb(35, 35, 35)" title="Sign Up"/>
-          </View>
-        </View>
-        </ImageBackground>
-    );
-  }
-}
-
-
-//Function called by Login button
-function LogIn(){
-//if valid return 1, else return -1
-  console.log("loggin in");
-  this.props.navigation.navigate()
-}
-
-//Function called by Signup button
-function SignUp(){
-//navigate to signup screen
-  console.log("signing up");
-}
 
 //Definition of textInput component
 class MakeTextInputBox extends Component{
@@ -151,22 +67,11 @@ class MakeTextInputBox extends Component{
     this.onSubmitEditing=Keyboard.dismiss;
     this.textAlignVertical= "center";
 
-    // //TODO:
-    // //Attempt to make class more modular
-    // this.secureTextEntry = function(){
-    //   if(this.textContentType.localCompare("password")==0){
-    //     return "true"
-    //   }else{
-    //     return "false"
-    //   }
-    // };
-
     this.blurOnSubmit = 'true';
   }
   ///constructor ends here, define default props up here ^^
   render(){
     return(
-      
       <TextInput
         {...this.props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
       />
@@ -209,9 +114,6 @@ class FadeInView extends React.Component {
   }
 }
 
-
-
-
 //Styles
 
 const ImageStyles = StyleSheet.create({
@@ -244,7 +146,7 @@ const styles = StyleSheet.create({
     //backgroundColor: "#00dfb0",
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 180
+    paddingBottom: 180,
   },
   baseText: {
     fontFamily: 'Times New Roman',
