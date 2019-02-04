@@ -1,11 +1,39 @@
 import React, {Component} from 'react';
 import { Keyboard, Button, Animated, Easing, TextInput, AppRegistry, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { Divider } from 'react-native-elements';
-import {createStackNavigator, createAppNavigator} from 'react-navigation';
+import {createStackNavigator, createAppContainer, createAppNavigator} from 'react-navigation';
 //import { StackNavigator } from 'react-navigation';
 
+//have to import the login page info from another file
+import LoginScreen from './Login';
 
+
+// okay so this creates the stack navigator
+// and it shows that the 'Home' page is the HomeScreen 
+// and same with login
+const AppNavigator = createStackNavigator(
+  {
+    Home: {screen: HomeScreen},
+    Login: {screen: LoginScreen},
+  },
+  {
+    initialRouteName: "Home"
+  }
+);
+
+//creates the appcontainer
+const AppContainer = createAppContainer(AppNavigator);
+//
+
+///this basically renders the pages
 export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}
+
+//the homepage
+class HomeScreen extends React.Component {
   state = {
     text: ''
   };
@@ -45,7 +73,7 @@ export default class App extends React.Component {
 
           {/* Login Button */}
           <View style={styles.button}>
-            <Button onPress={LogIn} color="rgb(35, 35, 35)" title="Log In"/>
+            <Button onPress={()=>this.props.navigation.navigate('Login')} color="rgb(35, 35, 35)" title="Log In"/>
           </View>
 
           {/* more spacing */}
@@ -75,15 +103,18 @@ export default class App extends React.Component {
   }
 }
 
+
 //Function called by Login button
 function LogIn(){
 //if valid return 1, else return -1
-  console.log("got it");
+  console.log("loggin in");
+  this.props.navigation.navigate()
 }
 
 //Function called by Signup button
 function SignUp(){
 //navigate to signup screen
+  console.log("signing up");
 }
 
 //Definition of textInput component
