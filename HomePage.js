@@ -20,7 +20,6 @@ function SignUp(){
 }
 
 
-
 export default class HomePage extends React.Component {
     state = {
       text: ''

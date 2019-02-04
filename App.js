@@ -59,7 +59,7 @@ class MakeTextInputBox extends Component{
     this.spellCheck=true;
     
     // this.textContentType="null";
-    this.color="rgb(8,8,8)"
+    this.color="rgb(8,8,8)";
     this.fontSize = 18;
     this.includeFontPadding=true;
     this.textDecorationColor="rgb(8,8,8)";
@@ -112,6 +112,7 @@ class FadeInView extends React.Component {
   }
 }
 
+
 //Styles
 
 const ImageStyles = StyleSheet.create({
@@ -128,8 +129,7 @@ const ImageStyles = StyleSheet.create({
 const styles = StyleSheet.create({
 
   defaultContainer: {
-        //the teal color value is rgb(102,255,204)
-    //
+    //the teal color value is rgb(102,255,204)
     backgroundColor: "#00dfb0",
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -139,19 +139,15 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     flex: 2,
-    //the teal color value is rgb(102,255,204)
-    //
-    //backgroundColor: "#00dfb0",
     alignItems: 'center',
     justifyContent: 'center',
     paddingBottom: 180,
   },
+
   baseText: {
     fontFamily: 'Times New Roman',
   },
-  cursiveText: {
 
-  },
   titleText: {
     fontSize: 50,
     fontWeight: 'bold',
@@ -186,7 +182,7 @@ const styles = StyleSheet.create({
     width: null,
     height: null,
     resizeMode: 'cover'
-  }
+  },
 
 });
 
