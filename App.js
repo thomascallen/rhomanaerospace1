@@ -1,14 +1,25 @@
 import React, {Component} from 'react';
 import { Keyboard, Button, Animated, Easing, TextInput, AppRegistry, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { Divider } from 'react-native-elements';
-import {createStackNavigator, createAppContainer, createAppNavigator} from 'react-navigation';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 
-import AppNavigator from './AppNavigator';
+import HomePage from './screens/HomePage';
+import LoginPage from './screens/LoginPage';
 
-const App = createAppNavigator(AppNavigator);
+
+const AppNavigation= createStackNavigator({
+  Home: {screen: HomePage,},
+  Login : {screen: LoginPage,}
+},
+{
+  initialRouteName: 'Home'
+}
+
+);
+
+const App = createAppContainer(AppNavigation);
 
 export default App;
-
 
 //Definition of textInput component
 class MakeTextInputBox extends Component{
@@ -107,10 +118,10 @@ const styles = StyleSheet.create({
 
   defaultContainer: {
     //the teal color value is rgb(102,255,204)
-    backgroundColor: "#00dfb0",
+    flex:1,
+    backgroundColor: "rgb(8,8,8)",
     alignItems: 'center',
-    justifyContent: 'space-between',
-    
+    justifyContent: 'center',
   },
 
   container: {

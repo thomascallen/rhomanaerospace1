@@ -3,12 +3,13 @@
 import React, {Component} from 'react';
 import { Keyboard, Button, Animated, Easing, TextInput, AppRegistry, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { Divider } from 'react-native-elements';
-import {createStackNavigator, createAppContainer, createAppNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation';
+import styles  from '../App';
+import FadeInView  from '../App'; 
+import ImageStyles  from '../App';
+import MakeTextInputBox from '../App';
 
-
-import {styles, FadeInView, ImageStyles, MakeTextInputBox} from './App';
-
-export default class Home extends React.Component {
+export default class HomePage extends React.Component {
     state = {
       text: ''
     };
@@ -23,12 +24,13 @@ export default class Home extends React.Component {
           //Fade in Homescreen on mount (on loading basically)
         
         //ImageBackground sets the gradient background for the app. note: background color overides this
-        <ImageBackground source={require("./assets/gradientBack.png")} style={{width: '100%', height: '100%'}}>
+        <ImageBackground source={require("../assets/gradientBack.png")} style={{width: '100%', height: '100%'}}>
           {/* .container just sets spacing for each component in the main container */}
-          <View style={styles.container}>
+
+          <View style={{flex: 1, backgroundColor: "rgb(8,8,8)", justifyContent: "center", alignItems: 'center' }}>
             {/* logo */}
             <FadeInView style={{width: 250, height: 250, backgroundColor: 'transparent'}}>
-              <Image style={ImageStyles.stretch} source={require('./assets/logoNoBack.png')}/> 
+              <Image style={ImageStyles.stretch} source={require('../assets/logoNoBack.png')}/> 
             </FadeInView>
             
             {/* Email textBox */}
@@ -75,7 +77,7 @@ export default class Home extends React.Component {
           
             {/* createAccount button */}
             <View style={styles.button}>
-              <Button onPress={SignUp} color="rgb(35, 35, 35)" title="Sign Up"/>
+              <Button onPress={()=>console.log("signing in")} color="rgb(35, 35, 35)" title="Sign Up"/>
             </View>
           </View>
 
