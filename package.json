@@ -14,7 +14,8 @@
     "react-native-divider": "^1.0.3",
     "react-native-elements": "^1.0.0",
     "react-native-fade-in-image": "^1.4.1",
-    "react-navigation": "^3.1.2"
+    "react-navigation": "^3.1.2",
+    "util": "*"
   },
   "devDependencies": {
     "@expo/vector-icons": "^9.0.0",

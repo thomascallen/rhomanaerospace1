@@ -2,35 +2,12 @@ import React, {Component} from 'react';
 import { Keyboard, Button, Animated, Easing, TextInput, AppRegistry, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { Divider } from 'react-native-elements';
 import {createStackNavigator, createAppContainer, createAppNavigator} from 'react-navigation';
-//import { StackNavigator } from 'react-navigation';
 
-//have to import the login page info from another file
-//import Login from './Login';
-import HomePage from './HomePage';
-import Login from './LoginPage';
+import AppNavigator from './AppNavigator';
 
+const App = createAppNavigator(AppNavigator);
 
-// okay so this creates the stack navigator
-// and it shows that the 'Home' page is the HomeScreen 
-// and same with login
-const AppNavigator = createStackNavigator(
-  {
-    Home: {screen: HomePage},
-    Login: {screen: Login},
-    //Login: {screen: Login},
-  }
-);
-
-//creates the appcontainer
-const AppContainer = createAppContainer(AppNavigator);
-//
-
-///this basically renders the pages
-export default class App extends React.Component {
-  render() {
-    return <AppContainer />;
-  }
-}
+export default App;
 
 
 //Definition of textInput component
@@ -174,8 +151,7 @@ const styles = StyleSheet.create({
     fontSize:18,
     backgroundColor: "rgb(108, 253, 103)",
     borderRadius: 10,
-    fontWeight: 'bold'
-
+    fontWeight: 'bold',
   },
   backgroundImage: {
     flex: 1,

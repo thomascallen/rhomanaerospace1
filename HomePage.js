@@ -5,22 +5,10 @@ import { Keyboard, Button, Animated, Easing, TextInput, AppRegistry, Image, Imag
 import { Divider } from 'react-native-elements';
 import {createStackNavigator, createAppContainer, createAppNavigator} from 'react-navigation';
 
+
 import {styles, FadeInView, ImageStyles, MakeTextInputBox} from './App';
 
-//Function called by Login button
-function LogIn(){
-    //if valid return 1, else return -1
-      console.log("logging in");
-}
-    
-    //Function called by Signup button
-function SignUp(){
-    //navigate to signup screen
-      console.log("signing up");
-}
-
-
-export default class HomePage extends React.Component {
+export default class Home extends React.Component {
     state = {
       text: ''
     };
@@ -28,8 +16,9 @@ export default class HomePage extends React.Component {
     static navigationOptions = {
         title: 'Home'
     };
-  
+    
     render() {
+      const {navigate} = this.props.navigation;
       return (
           //Fade in Homescreen on mount (on loading basically)
         
@@ -64,7 +53,7 @@ export default class HomePage extends React.Component {
   
             {/* Login Button */}
             <View style={styles.button}>
-              <Button onPress={()=>this.props.navigation.navigate('Login')} color="rgb(35, 35, 35)" title="Log In"/>
+              <Button onPress={()=>navigate('Login')} color="rgb(35, 35, 35)" title="Log In"/>
             </View>
   
             {/* more spacing */}
@@ -89,6 +78,7 @@ export default class HomePage extends React.Component {
               <Button onPress={SignUp} color="rgb(35, 35, 35)" title="Sign Up"/>
             </View>
           </View>
+
           </ImageBackground>
       );
     }
