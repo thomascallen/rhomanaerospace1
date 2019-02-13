@@ -7,19 +7,18 @@ import HomePage from './screens/HomePage';
 import LoginPage from './screens/LoginPage';
 
 
-const AppNavigation= createStackNavigator({
-  Home: {screen: HomePage,},
-  Login : {screen: LoginPage,}
-},
-{
-  initialRouteName: 'Home'
+const AppNavigator = createStackNavigator({
+  Home: { screen: HomePage },
+  Login: { screen: LoginPage },
+});
+
+const AppContainer = createAppContainer(AppNavigator);
+
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
 }
-
-);
-
-const App = createAppContainer(AppNavigation);
-
-export default App;
 
 //Definition of textInput component
 class MakeTextInputBox extends Component{

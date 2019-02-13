@@ -7,7 +7,7 @@ import {createStackNavigator} from 'react-navigation';
 import {styles, FadeInView, ImageStyles, MakeTextInputBox} from '../App';
 
 
-export default class LoginPage extends React.Component{
+class LoginPage extends React.Component{
 
   static navigationOptions = {
     title: 'Login'

@@ -9,7 +9,7 @@ import FadeInView  from '../App';
 import ImageStyles  from '../App';
 import MakeTextInputBox from '../App';
 
-export default class HomePage extends React.Component {
+class HomePage extends React.Component {
     state = {
       text: ''
     };
