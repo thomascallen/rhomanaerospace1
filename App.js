@@ -7,16 +7,16 @@ import SignUp from './screens/SignupPage';
 
 import * as firebase from 'firebase';
 // Initialize Firebase
-const API_KEY = "AIzaSyAjsSti1md2e16LOalvXrpPdrUuvSDZteg";
-const AUTH_DOMAIN = "bunkmates-b6d6b.firebaseapp.com";
-const DATABASE_URL = "https://bunkmates-b6d6b.firebaseio.com";
-const STORAGE_BUCKET = "bunkmates-b6d6b.appspot.com";
+// const API_KEY = "AIzaSyAjsSti1md2e16LOalvXrpPdrUuvSDZteg";
+// const AUTH_DOMAIN = "bunkmates-b6d6b.firebaseapp.com";
+// const DATABASE_URL = "https://bunkmates-b6d6b.firebaseio.com";
+// const STORAGE_BUCKET = "bunkmates-b6d6b.appspot.com";
 
 const firebaseConfig = {
-  apiKey: "<your-api-key>",
-  authDomain: "<your-auth-domain>",
-  databaseURL: "<your-database-url>",
-  storageBucket: "<your-storage-bucket>",
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  databaseURL: DATABASE_URL,
+  storageBucket: STORAGE_BUCKET,
 };
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
