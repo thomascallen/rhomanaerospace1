@@ -132,7 +132,7 @@ class MakeTextInputBox extends Component{
       width: 250, 
       height: 40, 
       borderRadius: 10, 
-      backgroundColor: "#00dfb0", 
+      backgroundColor: "rgba(255,255,255, .2)", 
       borderColor: "rgb(108, 253, 103)", 
       borderWidth: 3
     },
@@ -152,4 +152,4 @@ class MakeTextInputBox extends Component{
     }
   });
 
-  export { styles , FadeInView, ImageStyles, MakeTextInputBox };
+export { styles , FadeInView, ImageStyles, MakeTextInputBox };

@@ -28,18 +28,18 @@ export default class HomePage extends React.Component {
         //ImageBackground sets the gradient background for the app. note: background color overides this
         <ImageBackground source={require("../assets/gradientBack.png")} style={{width: '100%', height: '100%'}}>
           {/* .container just sets spacing for each component in the main container */}
-        {this.renderConsolelog(30)}
+       
           <View style={{flex: 1, justifyContent: "center", alignItems: 'center' }}>
             {/* logo */}
             <FadeInView style={{width: 250, height: 250, backgroundColor: 'transparent'}}>
               <Image style={ImageStyles.stretch} source={require('../assets/logoNoBack.png')}/> 
             </FadeInView>
-            {this.renderConsolelog(36)}
+           
             {/* Email textBox */}
             <View style={styles.textBox}>
               <MakeTextInputBox placeholder={" Email"} autoComplete={"email"} keyboardType={"email-address"} />
             </View>
-            {this.renderConsolelog(41)}
+            
             {/* newline for spacing */}
             <View style={{fontSize: 0}}>
               <Text></Text>
@@ -79,7 +79,7 @@ export default class HomePage extends React.Component {
           
             {/* createAccount button */}
             <View style={styles.button}>
-              <Button onPress={()=>console.log("signing in")} color="rgb(35, 35, 35)" title="Sign Up"/>
+              <Button onPress={() => Actions.signup()} color="rgb(35, 35, 35)" title="Sign Up"/>
             </View>
           </View>
 
