@@ -15,10 +15,11 @@ export default class LoginPage extends React.Component{
     render() {
       console.log("I'm trying to render the loginPage")
         return (
-          
-          <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-            <Text>I really hope this works</Text>
-          </View>
+          <ImageBackground source={require("../assets/gradientBack.png")} style={{width: '100%', height: '100%'}}>
+            <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+              <Text>I really hope this works</Text>
+            </View>
+          </ImageBackground>
         );
       }
 }
