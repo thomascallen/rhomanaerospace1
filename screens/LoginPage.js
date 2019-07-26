@@ -1,11 +1,12 @@
 //this is the login page 
 
 import React, {Component} from 'react';
-import { Keyboard, Button, Animated, Easing, TextInput, AppRegistry, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { Divider } from 'react-native-elements';
+import { Platform, Alert, YellowBox,Keyboard, Button, Animated, Easing, TextInput, AppRegistry, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { Divider, Overlay} from 'react-native-elements';
 import {createStackNavigator} from 'react-navigation';
 import {styles, FadeInView, ImageStyles, MakeTextInputBox} from '../additionalFunctions';
 import { MapView } from "expo";
+import { Menu, MenuProvider, MenuOptions, MenuOption, MenuTrigger} from "react-native-popup-menu";
 
 export default class LoginPage extends React.Component{
 
@@ -71,19 +72,20 @@ export default class LoginPage extends React.Component{
               >
               <MapView.Marker
               coordinate={{latitude: this.state.initalFlightPin.latitude, longitude: this.state.initalFlightPin.longitude}}
-              title={"The First Pin"}
-              description={"initalFlightPin"}
-            />
+              title={"Pin #1"}
+              description={"Initial Flight Pin"}
+              />
+
+              <MapView.Callout>
+                <View style={{flex: 1, flexDirection: 'column', justifyContent: "center", alignItems: 'center' }}>
+                  <View style={styles.callout}>
+                    <Button title='Configure Waypoints' onPress={() => console.log('Changing')} />
+                  </View>
+                </View>
+              </MapView.Callout>
+
           </MapView>
-          <Overlay
-            isVisible={this.state.isVisible}
-            windowBackgroundColor="rgba(255, 255, 255, .5)"
-            overlayBackgroundColor="red"
-            width="auto"
-            height="auto"
-          >
-          <Text>Hello from Overlay!</Text>
-          </Overlay>;
+          
             );
           }
         }

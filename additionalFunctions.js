@@ -111,6 +111,14 @@ class MakeTextInputBox extends Component{
       justifyContent: 'center',
       paddingBottom: 180,
     },
+
+    containerSmaller: {
+      flexDirection: 'column',
+      flex: 1,
+      justifyContent: 'center',
+      paddingBottom: 180,
+    },
+
   
     baseText: {
       fontFamily: 'Times New Roman',
@@ -143,6 +151,18 @@ class MakeTextInputBox extends Component{
       backgroundColor: "rgb(108, 253, 103)",
       borderRadius: 10,
       fontWeight: 'bold',
+      
+    },
+    callout:{
+      justifyContent: 'center',
+      textAlignVertical: 'center',
+      width: 250,
+      height:40,
+      fontSize:18,
+      backgroundColor: 'white',
+      borderRadius: 10,
+      fontWeight: 'bold',
+      
     },
     backgroundImage: {
       flex: 1,
