@@ -4,10 +4,11 @@ import { Router, Scene } from 'react-native-router-flux';
 import HomePage from './screens/HomePage';
 import LoginPage from './screens/LoginPage';
 import SignUp from './screens/SignupPage';
-import {API_KEY, AUTH_DOMAIN, DATABASE_URL, STORAGE_BUCKET} from 'security';
+//import {API_KEY, AUTH_DOMAIN, DATABASE_URL, STORAGE_BUCKET} from 'security';
 import * as firebase from 'firebase';
 
 // Initialize Firebase
+/*
 const firebaseConfig = {
   apiKey: API_KEY,
   authDomain: AUTH_DOMAIN,
@@ -15,7 +16,7 @@ const firebaseConfig = {
   storageBucket: STORAGE_BUCKET,
 };
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-
+*/
 const App = () => {
   console.log("Im in App!");
   return (

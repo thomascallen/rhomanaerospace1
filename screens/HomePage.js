@@ -30,25 +30,18 @@ export default class HomePage extends React.Component {
           {/* .container just sets spacing for each component in the main container */}
        
           <View style={{flex: 1, justifyContent: "center", alignItems: 'center' }}>
-            {/* logo */}
-            <FadeInView style={{width: 250, height: 250, backgroundColor: 'transparent'}}>
-              <Image style={ImageStyles.stretch} source={require('../assets/logoNoBack.png')}/> 
-            </FadeInView>
-           
-            {/* Email textBox */}
-            <View style={styles.textBox}>
-              <MakeTextInputBox placeholder={" Email"} autoComplete={"email"} keyboardType={"email-address"} />
-            </View>
             
-            {/* newline for spacing */}
+            {/* text */}
+            <View style={{fontSize: 20}}>
+            <Text style={styles.textRegister}>───── Welcome  ─────</Text>
+            </View>
+            {this.renderConsolelog(72)}
+            {/* more spacing */}
             <View style={{fontSize: 0}}>
+              <Text></Text>
               <Text></Text>
             </View>
   
-            {/* Password textBox */}
-            <View style={styles.textBox}>
-              <MakeTextInputBox textContentType={"password"} placeholder={"Password"} secureTextEntry />
-            </View>
   
             {/* newline for spacing */}
             <View style={{fontSize: 0}}>
@@ -57,7 +50,7 @@ export default class HomePage extends React.Component {
   
             {/* Login Button */}
             <View style={styles.button}>
-              <Button onPress={() => Actions.login()} color="rgb(35, 35, 35)" title="Log In"/>
+              <Button onPress={() => Actions.login()} color="rgb(35, 35, 35)" title="View Map"/>
             </View>
   
             {/* more spacing */}
@@ -66,21 +59,6 @@ export default class HomePage extends React.Component {
               <Text></Text>
             </View>
   
-            {/* text */}
-            <View style={{fontSize: 20}}>
-            <Text style={styles.textRegister}>───── Or Create An Account  ─────</Text>
-            </View>
-            {this.renderConsolelog(72)}
-            {/* more spacing */}
-            <View style={{fontSize: 0}}>
-              <Text></Text>
-              <Text></Text>
-            </View>
-          
-            {/* createAccount button */}
-            <View style={styles.button}>
-              <Button onPress={() => Actions.signup()} color="rgb(35, 35, 35)" title="Sign Up"/>
-            </View>
           </View>
 
           </ImageBackground>
