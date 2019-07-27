@@ -1,67 +1,84 @@
 //this is the login page 
 
 import React, {Component} from 'react';
-import { Platform, Alert, YellowBox,Keyboard, Button, Animated, Easing, TextInput, AppRegistry, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import {Keyboard, Button, Animated, Easing, TextInput, AppRegistry, Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { Divider, Overlay} from 'react-native-elements';
 import {createStackNavigator} from 'react-navigation';
 import {styles, FadeInView, ImageStyles, MakeTextInputBox} from '../additionalFunctions';
-import { MapView } from "expo";
-import { Menu, MenuProvider, MenuOptions, MenuOption, MenuTrigger} from "react-native-popup-menu";
-
+import { Dropdown } from 'react-native-material-dropdown';
+import {MapView}from 'expo';
 export default class LoginPage extends React.Component{
 
   static navigationOptions = {
     title: 'Map'
   }; 
 
-
   constructor(props) {
     super(props);
+    this.map;
     this.state = {
+      waypointCount: 4,
       isLoading: true,
-      markers: [{
-        coordinate: {
-          latitude: 45.524548,
-          longitude: -122.6749817,
-        },
-        title: "Best Place",
-        description: "This is the best place in Portland",
-      },
-      {
-        coordinate: {
-          latitude: 45.524698,
-          longitude: -122.6655507,
-        },
-        title: "Second Best Place",
-        description: "This is the second best place in Portland",
-      },
-      {
-        coordinate: {
-          latitude: 45.5230786,
-          longitude: -122.6701034,
-        },
-        title: "Third Best Place",
-        description: "This is the third best place in Portland",
-      },
-      {
-        coordinate: {
-          latitude: 45.521016,
-          longitude: -122.6561917,
-        },
-        title: "Fourth Best Place",
-        description: "This is the fourth best place in Portland",
-      },
-    ],
+      markers: [],
     initalFlightPin:{
       latitude: 34.0522,
       longitude: -118.2437,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421
     },
+    initalFlightPinTwoVal:{
+      latitude: 34.0522,
+      longitude: -118.2437,
+    },
     };
   }
+
+  connectMarkers(){
+      //connect the markers here//
+      if(this.state.markers.length===this.state.waypointCount){
+        //then it is full and now we need to connect them
+        /************************TODO************************ */
+        console.log("TARGET HIT!!!");
+        var markersAltered = this.state.markers;
+        markersAltered.push(this.state.initalFlightPinTwoVal);
+        console.log(markersAltered);
+        return(
+        <MapView.Polyline
+            coordinates={markersAltered.reversed()}
+            strokeColor="#000"
+            fillColor="blue"
+            strokeWidth={4}/>
+        )
+  }
+}
+
+  removeMarkers(){
+    //remove the markers here////
+  }
+
+  addToMapMarkers(myElement){
+    console.log(myElement);
+    console.log("Adding a new Marker!");
+    //this.state.markers.push(myElement);
+    let prevArray = this.state.markers;
+    prevArray.push(myElement);
+    console.log("markers array size--> "+prevArray.length);
+    this.setState({ markers: prevArray});
+  }
+
     render() {
-      console.log("I'm going to render the map now")
+      console.log("I'm going to render the map now", this.state);
+      let data = [{
+        value: '4 Waypoints',
+      }, {
+        value: '3 Waypoints',
+      }, {
+        value: '2 Waypoints',
+      },
+      {
+        value: '1 Waypoints',
+      },
+      ];
         return (
             <MapView
               style={{
@@ -69,20 +86,38 @@ export default class LoginPage extends React.Component{
               }}
               provider="google"
               initialRegion={this.state.initalFlightPin}
+              onPress={ (event) => 
+                this.addToMapMarkers(event.nativeEvent.coordinate)}
               >
+              {this.state.markers.map((marker, index) =>{
+                return(
+                  <MapView.Marker
+                  key={index}
+                    coordinate={{latitude: marker.latitude, longitude: marker.longitude}}
+                    title={`Marker ${index}`}
+                    description={"Waypoint added by user"}
+                  />
+                )
+              })}
+             
               <MapView.Marker
               coordinate={{latitude: this.state.initalFlightPin.latitude, longitude: this.state.initalFlightPin.longitude}}
               title={"Pin #1"}
               description={"Initial Flight Pin"}
               />
-
+              {this.connectMarkers()}
               <MapView.Callout>
-                <View style={{flex: 1, flexDirection: 'column', justifyContent: "center", alignItems: 'center' }}>
-                  <View style={styles.callout}>
-                    <Button title='Configure Waypoints' onPress={() => console.log('Changing')} />
-                  </View>
+                <View style={{ marginTop:"20%", }}>
+                  <Dropdown
+                  containerStyle={styles.callout}
+                  label='Number of Waypoints'
+                  data={data}
+                  textColor="black"  
+                  itemTextStyle={{marginLeft: "2%"}}
+                  />
                 </View>
               </MapView.Callout>
+ 
 
           </MapView>
           
