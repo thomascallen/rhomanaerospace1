@@ -19,6 +19,7 @@ export default class LoginPage extends React.Component{
     this.map;
     this.state = {
       waypointCount: 1,
+      type: "",
       isLoading: true,
       markers: [],
     initalFlightPin:{
@@ -70,6 +71,10 @@ export default class LoginPage extends React.Component{
     }else{
         this.removeMarkers();
     }
+  }
+
+  updateMe(dataMine){
+    this.setState({markers: [], waypointCount: dataMine});
   }
 
     render() {
@@ -124,7 +129,7 @@ export default class LoginPage extends React.Component{
                 // checkImage={}   
                 // optionTextStyle={{color: '#333333'}}
                 // titleStyle={{color: '#333333'}} 
-                handler={(selection, row) => this.setState({markers: this.state.markers, waypointCount: data[selection][row]})}
+                handler={(selection, row) => this.setState({markers: [], waypointCount: data[selection][row]})}
                 data={data}
               />
             </View>
