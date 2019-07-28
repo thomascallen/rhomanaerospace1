@@ -164,20 +164,14 @@ class MakeTextInputBox extends Component{
       padding: 2,
       fontSize: 20
     },
-    dropdown:{
-      width: 250,
-      height:20,
-      fontSize:18,
-      backgroundColor: 'white',
-      margin: 15,
-    },
+    
     callout:{
-      justifyContent: 'center',
-      width: 250,
-      height:'auto',
+      width: "50%",
+      height:50,
       backgroundColor: 'white',
-      borderRadius: 10,  
-         
+      borderRadius: 10, 
+      position: "absolute",  
+    
     },
     backgroundImage: {
       flex: 1,

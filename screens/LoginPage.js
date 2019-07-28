@@ -6,6 +6,7 @@ import { Divider, Overlay} from 'react-native-elements';
 import {createStackNavigator} from 'react-navigation';
 import {styles, FadeInView, ImageStyles, MakeTextInputBox} from '../additionalFunctions';
 import { Dropdown } from 'react-native-material-dropdown';
+import DropdownMenu from 'react-native-dropdown-menu';
 import {MapView}from 'expo';
 export default class LoginPage extends React.Component{
 
@@ -17,7 +18,7 @@ export default class LoginPage extends React.Component{
     super(props);
     this.map;
     this.state = {
-      waypointCount: 4,
+      waypointCount: 1,
       isLoading: true,
       markers: [],
     initalFlightPin:{
@@ -44,7 +45,7 @@ export default class LoginPage extends React.Component{
         console.log(markersAltered);
         return(
         <MapView.Polyline
-            coordinates={markersAltered.reversed()}
+            coordinates={markersAltered}
             strokeColor="#000"
             fillColor="blue"
             strokeWidth={4}/>
@@ -54,31 +55,27 @@ export default class LoginPage extends React.Component{
 
   removeMarkers(){
     //remove the markers here////
+    this.setState({markers: [], waypointCount: 0});
   }
 
   addToMapMarkers(myElement){
-    console.log(myElement);
-    console.log("Adding a new Marker!");
-    //this.state.markers.push(myElement);
-    let prevArray = this.state.markers;
-    prevArray.push(myElement);
-    console.log("markers array size--> "+prevArray.length);
-    this.setState({ markers: prevArray});
+    console.log("I got a touch response at "+myElement);
+    if(this.state.markers.length<this.state.waypointCount){
+      console.log(myElement);
+      console.log("Adding a new Marker!");
+      //this.state.markers.push(myElement);
+      let prevArray = this.state.markers;
+      prevArray.push(myElement);
+      console.log("markers array size--> "+prevArray.length);
+      this.setState({ markers: prevArray});
+    }else{
+        this.removeMarkers();
+    }
   }
 
     render() {
       console.log("I'm going to render the map now", this.state);
-      let data = [{
-        value: '4 Waypoints',
-      }, {
-        value: '3 Waypoints',
-      }, {
-        value: '2 Waypoints',
-      },
-      {
-        value: '1 Waypoints',
-      },
-      ];
+      var data = [["4", "3", "2", "1"], ["Land at Last Waypoint", "Return to Launch Point"]];
         return (
             <MapView
               style={{
@@ -106,17 +103,23 @@ export default class LoginPage extends React.Component{
               description={"Initial Flight Pin"}
               />
               {this.connectMarkers()}
-              <MapView.Callout>
-                <View style={{ marginTop:"20%", }}>
-                  <Dropdown
-                  containerStyle={styles.callout}
-                  label='Number of Waypoints'
-                  data={data}
-                  textColor="black"  
-                  itemTextStyle={{marginLeft: "2%"}}
+            
+              <View style={{flex: 1}}>
+                
+                  <DropdownMenu
+                    style={{flex: 1, padding: 10}}
+                    bgColor={'white'}
+                    tintColor={'#666666'}
+                    activityTintColor={'green'}
+                    // arrowImg={}      
+                    // checkImage={}   
+                    // optionTextStyle={{color: '#333333'}}
+                    // titleStyle={{color: '#333333'}} 
+                    // maxHeight={300} 
+                    handler={(selection, row) => this.setState({markers: this.state.markers, waypointCount: data[selection][row]})}
+                    data={data}
                   />
-                </View>
-              </MapView.Callout>
+              </View>
  
 
           </MapView>
